@@ -1,18 +1,25 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang = "en">
   <head>
-    <title>Team 23 Awesomeness Translator</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="google-signin-scope" content="bobteriaki@gmail.com">
+    <meta name="google-signin-client_id" content="914740207893-vurejigseg69fme5vr15fupgttspa6k3.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    
   </head>
   <body>
-    <div id="result">Loading...</div>
-
-    <script>
-$(document).ready(function() {
-  $.getJSON('/demo', function(data) {
-    $('#result').html("Hello, " + data.name);
-  });
-});
-    </script>
+  <div class = "g-signin2" data-onsucess="onSignIn"></div>
   </body>
+
+  <script type="text/javascript">
+  	function onSignIn(googleUser) {
+	  var profile = googleUser.getBasicProfile();
+	  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	  console.log('Name: ' + profile.getName());
+	  console.log('Image URL: ' + profile.getImageUrl());
+	  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	}
+
+  </script>
+
 </html>
