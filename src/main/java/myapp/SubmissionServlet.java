@@ -1,19 +1,3 @@
-/*
- * Copyright 2016 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package myapp;
 
 import com.google.cloud.datastore.Datastore;
@@ -22,7 +6,6 @@ import com.google.cloud.datastore.Entity;
 import com.google.cloud.datastore.FullEntity;
 import com.google.cloud.datastore.KeyFactory;
 import java.io.IOException;
-//import javax.servlet.annotation.*;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,9 +16,6 @@ public class SubmissionServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws IOException {
-
-    // TODO: store in datastore
-
     //String username = Jsoup.clean(request.getParameter("full-name"), Whitelist.none());
     //String email= Jsoup.clean(request.getParameter("email-address"), Whitelist.none());
     //String message = Jsoup.clean(request.getParameter("message"), Whitelist.none());
@@ -55,16 +35,3 @@ public class SubmissionServlet extends HttpServlet {
     datastore.put(taskEntity);  
     resp.sendRedirect("/index.html");  
       }
-
-//Work in Prog
-
-
-    // resp.setHeader("Content-Type", "text/html; charset=UTF-8");
-    // PrintWriter out = resp.getWriter();
-    // out.write("username: " + username);
-    // out.write("email: " + email);
-    // out.write("language: " + language);
-    // out.write("message: " + message);
-    // out.flush();
-    // out.close();
-}
