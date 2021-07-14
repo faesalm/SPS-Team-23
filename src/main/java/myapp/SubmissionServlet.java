@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.sps.servlets;
+package myapp;
 
 import com.google.cloud.datastore.Datastore;
 import com.google.cloud.datastore.DatastoreOptions;
@@ -22,7 +22,7 @@ import com.google.cloud.datastore.Entity;
 import com.google.cloud.datastore.FullEntity;
 import com.google.cloud.datastore.KeyFactory;
 import java.io.IOException;
-import javax.servlet.annotation.WebServlet;
+//import javax.servlet.annotation.*;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,23 +36,25 @@ public class SubmissionServlet extends HttpServlet {
 
     // TODO: store in datastore
 
-    String Username = Jsoup.clean(request.getParameter("full-name"), Whitelist.none());
-    String email= Jsoup.clean(request.getParameter("email-address"), Whitelist.none());
-    String message = Jsoup.clean(request.getParameter("message"), Whitelist.none());
-    String language = Jsoup.clean(request.getParameter("language"), Whitelist.none()); 
+    //String username = Jsoup.clean(request.getParameter("full-name"), Whitelist.none());
+    //String email= Jsoup.clean(request.getParameter("email-address"), Whitelist.none());
+    //String message = Jsoup.clean(request.getParameter("message"), Whitelist.none());
+    //String language = Jsoup.clean(request.getParameter("language"), Whitelist.none()); 
+
+    //System.out.println(username);
 
     Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
     KeyFactory keyFactory = datastore.newKeyFactory().setKind("full-name");
         FullEntity taskEntity =
         Entity.newBuilder(keyFactory.newKey())
-        .set("full-name", username)
-        .set("email-address", email)
-        .set("language", language)
-        .set("message", message)
+        .set("full-name", "Koy")
+        .set("email-address", "testing")
+        .set("language", "english")
+        .set("message", "test")
         .build();
-    datastore.put(userEntity);  
-    response.sendRedirect("/index.html");  
-} 
+    datastore.put(taskEntity);  
+    resp.sendRedirect("/index.html");  
+      }
 
 //Work in Prog
 
@@ -65,5 +67,4 @@ public class SubmissionServlet extends HttpServlet {
     // out.write("message: " + message);
     // out.flush();
     // out.close();
-  }
 }
