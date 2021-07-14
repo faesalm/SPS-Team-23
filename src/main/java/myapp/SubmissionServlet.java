@@ -35,3 +35,4 @@ public class SubmissionServlet extends HttpServlet {
     datastore.put(taskEntity);  
     resp.sendRedirect("/index.html");  
       }
+}
