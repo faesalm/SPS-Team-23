@@ -13,26 +13,24 @@ import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
 
 public class SubmissionServlet extends HttpServlet {
-  @Override
-  public void doPost(HttpServletRequest req, HttpServletResponse resp)
-      throws IOException {
-    //String username = Jsoup.clean(request.getParameter("full-name"), Whitelist.none());
-    //String email= Jsoup.clean(request.getParameter("email-address"), Whitelist.none());
-    //String message = Jsoup.clean(request.getParameter("message"), Whitelist.none());
-    //String language = Jsoup.clean(request.getParameter("language"), Whitelist.none()); 
-
-    //System.out.println(username);
-
+    @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    String username = Jsoup.clean(request.getParameter("username"), Whitelist.none());
+    String email= Jsoup.clean(request.getParameter("email-address"), Whitelist.none());
+    String language = Jsoup.clean(request.getParameter("language"), Whitelist.none()); 
+    String message = Jsoup.clean(request.getParameter("message"), Whitelist.none());
+    
     Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-    KeyFactory keyFactory = datastore.newKeyFactory().setKind("full-name");
-        FullEntity taskEntity =
+    KeyFactory keyFactory = datastore.newKeyFactory().setKind("Task");
+    FullEntity taskEntity =
         Entity.newBuilder(keyFactory.newKey())
-        .set("full-name", "Koy")
-        .set("email-address", "testing")
-        .set("language", "english")
-        .set("message", "test")
-        .build();
-    datastore.put(taskEntity);  
-    resp.sendRedirect("/index.html");  
-      }
+            .set("username", username)
+            .set("email-address", email)
+            .set("language", language)
+            .set("message", message)
+            .build();
+    datastore.put(taskEntity);
+
+    response.sendRedirect("/index.html");
+    }
 }
