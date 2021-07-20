@@ -1,13 +1,19 @@
-  <form action = "/SubmissionServlet" method = "post">
-    <fieldset>
-      <label for="full-name">Full Name</label>
-      <input type="text" id="full-name" placeholder="Mike James" required="">
-      <label for="email-address">Email Address</label>
-      <input type="email" id="email-address" placeholder="email@domain.tld" required="">
-      <label for="language">Language</label>
-      <input type="text" id="language" placeholder="Spanish" required="">
-      <label for="message">Message</label>
-      <textarea rows="5" id="message" placeholder="text" required=""></textarea>
-    </fieldset>
-    <input type="submit" value="Submit">
+<!doctype html>
+<html>
+  <head>
+    <title>Team 23 Awesomeness Translator</title>
+    <script src=""></script>
+  </head>
+  <body>
+      <form action="/SubmissionServlet" method="post">
+      <b><h1>Team 23 Awesomeness Translator</h1></b>
+      <i><p>Enter into the required fields the information that you would like to be translated!</p></i>
+      Full Name: <input type="text" name="username" placeholder="Mike James" required/>
+      Email: <input type="email" name="email-address" placeholder="email@domain.tld" required/>
+      Language: <input type="text" name="language" placeholder="Spanish" required/>
+      Description: <textarea rows="5" name="message" placeholder="description" required></textarea>
+  </body>
+  <div></div>
+  <input type="submit" value="Submit"/>
   </form>
+</html>
