@@ -28,8 +28,8 @@ public class DemoServlet extends HttpServlet {
   public void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws IOException {
     resp.setContentType("text/plain");
-    String m1 = "{ full_name: \"Faesal\", \"langauge\": \"English\", \"description\": \"this is my test message\" }";
-    String m2 = "{ full_name: \"Koy\", \"langauge\": \"Spanish\", \"description\": \"This is a spanish test message\"}";
+    String m1 = "{ \"full_name\": \"Faesal\", \"langauge\": \"English\", \"description\": \"this is my test message\" }";
+    String m2 = "{ \"full_name\": \"Koy\", \"langauge\": \"Spanish\", \"description\": \"This is a spanish test message\"}";
     String[] messages = {m1, m2};
     Gson gson = new Gson();
     String json = gson.toJson(messages);

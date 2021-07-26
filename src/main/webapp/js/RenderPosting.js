@@ -20,8 +20,10 @@ function fetchAllSubmissions() {
 }
 
 function buildPostingDiv(posting) {
+    const parsed = JSON.parse(posting)
     const postingDiv = document.createElement("div");
-    document.createTextNode(posting.full_name)
+    const name  = document.createTextNode(parsed.full_name)
+    postingDiv.appendChild(name);
     return postingDiv //postingFullNameDiv
 }
 
