@@ -20,12 +20,21 @@ import java.io.IOException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.google.gson.Gson;
+
 
 public class DemoServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws IOException {
     resp.setContentType("text/plain");
-    resp.getWriter().println("{ \"name\": \"Team 23!\" }");
+    String m1 = "{ full_name: \"Faesal\", \"langauge\": \"English\", \"description\": \"this is my test message\" }";
+    String m2 = "{ full_name: \"Koy\", \"langauge\": \"Spanish\", \"description\": \"This is a spanish test message\"}";
+    String[] messages = {m1, m2};
+    Gson gson = new Gson();
+    String json = gson.toJson(messages);
+    resp.getWriter().println(json);
   }
 }
+
+

@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>Team 23 Awesomeness Translator</title>
-    <script src=""></script>
+    <script src="/js/RenderPosting.js"></script>
   </head>
-  <body>
+  <body onload="buildUI()">
       <form action="/SubmissionServlet" method="post">
       <b><h1>Team 23 Awesomeness Translator</h1></b>
       <i><p>Enter into the required fields the information that you would like to be translated!</p></i>
@@ -12,8 +12,9 @@
       Email: <input type="email" name="email-address" placeholder="email@domain.tld" required/>
       Language: <input type="text" name="language" placeholder="Spanish" required/>
       Description: <textarea rows="5" name="message" placeholder="description" required></textarea>
-  </body>
   <div></div>
   <input type="submit" value="Submit"/>
   </form>
+  <div id="posting-container" style="font-family:'Proxima Nova Soft', 'Helvetica Neue', sans-serif;">Loading...</div>
+  </body>
 </html>
